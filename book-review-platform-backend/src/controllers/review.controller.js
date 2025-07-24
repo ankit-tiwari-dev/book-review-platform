@@ -3,9 +3,6 @@ import { Book } from "../models/book.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 
-// @desc Add review to a book
-// @route POST /api/books/:bookId/reviews
-// @access Protected
 export const addReview = asyncHandler(async (req, res) => {
   const { review_text, rating } = req.body;
   const { bookId } = req.params;
@@ -33,9 +30,6 @@ export const addReview = asyncHandler(async (req, res) => {
   });
 });
 
-// @desc Get all reviews for a book
-// @route GET /api/books/:bookId/reviews
-// @access Public
 export const getReviewsByBookId = asyncHandler(async (req, res) => {
   const { bookId } = req.params;
 

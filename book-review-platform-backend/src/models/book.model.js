@@ -18,8 +18,8 @@ const bookSchema = new Schema(
       trim: true
     },
     addedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",  // connects to the User model
+      type: Schema.Types.ObjectId,
+      ref: "User", 
       required: true
     }
   },

@@ -17,13 +17,13 @@ router.post("/register", registerUser);
 
 router.post("/login", loginUser);   
 
-router.post("/logout", logoutUser); 
+router.post("/logout",verifyJWT, logoutUser); 
 
 router.route('/refresh-token').post(refreshAccessToken)
 
 router.get("/me", verifyJWT, getCurrentUser); 
 
-router.get("/update-password", verifyJWT, changeCurrentPassword)
+router.patch("/update-password", verifyJWT, changeCurrentPassword)
 
 router.route('/update-account').patch(verifyJWT, updateAccountDetails)
 

@@ -16,11 +16,14 @@ app.use(cookieParser())
 
 // routes import
 import userRouter from './routes/user.routes.js'
-
+import bookRouter from './routes/book.routes.js'
+import reviewRouter from './routes/review.routes.js'
 
 //routes declareation
 app.use("/api/v1/users", userRouter)
+app.use("/api/v1/books", bookRouter)
+app.use("/api/v1/books/:bookId/reviews", reviewRouter) 
 
-// http://localhost:8000/api/v1/users/register
+// http://localhost:8000/api/v1/users/
 
 export { app } 

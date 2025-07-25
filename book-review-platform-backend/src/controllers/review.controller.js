@@ -33,7 +33,21 @@ export const addReview = asyncHandler(async (req, res) => {
 export const getReviewsByBookId = asyncHandler(async (req, res) => {
   const { bookId } = req.params;
 
-  const reviews = await Review.find({ book: bookId }).populate("reviewer", "username");
+  const reviews = await Review.find({ book: bookId })
+    .populate("reviewer", "fullName username")
+    .populate("book", "title author");         
+
+  res.status(200).json({
+    success: true,
+    data: reviews,
+  });
+});
+
+
+export const getAllReviews = asyncHandler(async (req, res) => {
+  const reviews = await Review.find()
+    .populate("reviewer", "username")
+    .populate("book", "title author");
 
   res.status(200).json({
     success: true,

@@ -83,3 +83,9 @@ export const getBookById = asyncHandler(async (req, res) => {
     },
   });
 });
+
+export const getBookFilters = asyncHandler(async (req, res) => {
+  const genres = await Book.distinct("genre");
+  const authors = await Book.distinct("author");
+  res.json({ genres, authors });
+});

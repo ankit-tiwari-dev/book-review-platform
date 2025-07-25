@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {extend: {
+      fontSize: {
+        '96px': '96px',
+      },
+      fontFamily: {
+      manrope: ['Manrope', 'sans-serif'],
+    },
+  },
+}
+
   },
   plugins: [],
 }

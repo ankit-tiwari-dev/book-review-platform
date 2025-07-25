@@ -10,10 +10,13 @@ const PORT = process.env.PORT;
 
 connectDB()
 .then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server is running at port : ${PORT}`);
-    })
+    // For Vercel, do not call app.listen here
+    // app.listen(PORT, () => {
+    //     console.log(`Server is running at port : ${PORT}`);
+    // })
 })
 .catch((err) => {
     console.log("MONGODB connection failed error : ", err);
 })
+
+export default app;
